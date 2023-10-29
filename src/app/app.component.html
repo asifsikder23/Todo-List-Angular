@@ -16,15 +16,15 @@
         (click)="addTodo()"
         type="submit"
       >
-        Add
+        {{ todo.id ? "Update" : "Add list" }}
       </button>
     </div>
     <ul>
       <li *ngFor="let item of todolist">
-        <p>{{ item.id }}.</p>
+        <!-- <p>{{ item.id }}.</p> -->
         <label for="task3"> {{ item.title }} </label>
-        <i class="fa fa-pencil"></i>
-        <i class="fa fa-times"></i>
+        <i (click)="edit(item)" class="fa fa-pencil"></i>
+        <i (click)="deleteTodo(item.id)" class="fa fa-times"></i>
       </li>
     </ul>
   </div>
